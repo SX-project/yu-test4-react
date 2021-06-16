@@ -1,12 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export const Page1 = () => {
+    const arr = [...Array(100).keys()];
+
+    const history = useHistory();
+
+    const onClickDetailA = () => history.push("/page1/DetailA");
+
     return(
         <div>
             <h1>Page1です。</h1>
-            <Link to="/page1/DetailA">Page1DetailA</Link>
+            <Link to= {{ pathname: "/page1/DetailA", state: arr }}>Page1DetailA</Link>
             <br/>
             <Link to="/page1/DetailB">Page1DetailB</Link>
+            <br/>
+            <button onClick={onClickDetailA}>DetailA</button>
         </div>
     )
 }
